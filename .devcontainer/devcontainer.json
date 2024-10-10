@@ -1,0 +1,32 @@
+{
+  "name": "Node.js",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:20-bullseye",
+
+  "customizations": {
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "mikestead.dotenv",
+        "ms-azuretools.vscode-bicep",
+        "github.vscode-pull-request-github"
+      ]
+    }
+  },
+
+  // Optional features, uncomment to enable.
+  // See https://code.visualstudio.com/docs/remote/containers#_dev-container-features-preview
+  "features": {
+    "azure-cli": "latest"
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "make src/node_modules",
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node"
+}
